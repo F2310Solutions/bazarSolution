@@ -14,6 +14,7 @@ class URLCounter implements Runnable {
 
     @Override
     public void run(){
+
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override

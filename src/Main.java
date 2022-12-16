@@ -1,5 +1,6 @@
 class Main {
     public static void main(String[] args) {
+
         URLGenerator generator = new URLGenerator();
         URLCounter counter = new URLCounter();
 
