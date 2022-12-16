@@ -5,7 +5,7 @@ import java.util.*;
 
 class URLGenerator implements Runnable {
 
-    // random urls reading from file per second
+    // for random urls reading from file per second
     private static Queue<String> randomUrls=new LinkedList<>();
 
     // just for print in terminal
