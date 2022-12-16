@@ -11,8 +11,13 @@ class URLGenerator implements Runnable {
     // just for print in terminal
     private static Queue<String> results=new LinkedList<>();
 
-    private  static final String fileName="links.txt";
-   @Override
+    // file path we read from it
+    private final String FILE_PATH="links.txt";
+
+    // maximum number of reading url per second
+    private static final int MAX_NUM_OF_READ_URL_PER_SECOND=200;
+
+    @Override
    public void run()
      {
 
@@ -22,7 +27,7 @@ class URLGenerator implements Runnable {
             public void run() {
 
                 // file with 10000 urls
-                readRandomLine(fileName);
+                readRandomLine(FILE_PATH);
 
             }
         } , 0 , 1000);
@@ -30,7 +35,7 @@ class URLGenerator implements Runnable {
     }
 
     private static void readRandomLine(String path) {
-        // all lines of urls from file
+        // all available urls from file
         List<String> lines;
 
         try {
@@ -42,7 +47,7 @@ class URLGenerator implements Runnable {
 
         Random random = new Random();
         // read 0 or 1 or .. to (for example) 200 random url from file
-        int numOfRandomUrls=random.nextInt(200);
+        int numOfRandomUrls=random.nextInt(MAX_NUM_OF_READ_URL_PER_SECOND);
 
         for (int i=0;i<numOfRandomUrls;i++) {
 
